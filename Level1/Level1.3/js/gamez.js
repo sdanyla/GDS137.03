@@ -21,15 +21,17 @@ var player;
 function animate()
 {
 	context.clearRect(0,0,canvas.width, canvas.height);	
-	player.move();
 	
-	//--------------Loop the Screen----------------------
-	if(player.x > canvas.width + player.width/2)
+	//----Movement Using the Player's move() function----
+	player.move();
+	//---------------------------------------------------
+	
+	//--------------Bounce of Right----------------------
+	if(player.x > canvas.width - player.width/2)
 	{
-		player.x = -player.width/2	
+		player.vx = +-player.vx;	
 	}
 	//---------------------------------------------------
 	
 	player.draw();
 }
-

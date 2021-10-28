@@ -32,4 +32,3 @@ function animate()
 	
 	player.draw();
 }
-
