@@ -3,6 +3,7 @@
 var canvas;
 var context;
 var timer;
+var radius = 5;
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
@@ -18,7 +19,7 @@ var player;
 	//Instantiate the Player
 	player = new Player();
 	ctx.beginPath();
-	ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+	ctx.arc(100, 75, 50, 0, 2, radius* Math.PI);
 	ctx.stroke();
 
 	//Set the Animation Timer
@@ -27,7 +28,7 @@ var player;
 	function animate()
 {
 	//Erase the Screen
-	context.clearRect(0,0,canvas.width, canvas.height);	
+	context.clearRect(0,0,-canvas.width, canvas.height);	
 	
 	//Move the Player
 	player.x += 2;

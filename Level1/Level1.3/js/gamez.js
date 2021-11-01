@@ -11,7 +11,7 @@ var player;
 	player = new Player();
 	
 	//------Declare the Player's speed on the x and y axis------
-	player.vx = 2;
+	player.vx = -2;
 	player.vy = 0;
 	//----------------------------------------------------
 	
@@ -26,12 +26,29 @@ function animate()
 	player.move();
 	//---------------------------------------------------
 	
-	//--------------Bounce of Right----------------------
-	if(player.x > canvas.width - player.width/2)
+	//--------------Bounce of Sides----------------------
+	if(player.x > canvas.width + player.width/2)
 	{
-		player.vx = +-player.vx;	
+		player.vx = -player.width/2	
+	}
+
+	if (player.x < 120)
+	{
+		player.vx = -player.vx
 	}
 	//---------------------------------------------------
-	
+
 	player.draw();
 }
+
+//function animate()
+//{
+	//--------------Bounce of Left----------------------
+	//if(player.x < canvas.width - player.width/2)
+	//{
+		//-player.vx == player.vx;	
+	//}
+	//---------------------------------------------------
+
+	//player.draw();
+//}
