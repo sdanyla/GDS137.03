@@ -14,6 +14,23 @@ function Player()
 	this.vy = 0;
 	
 	//player's color
+	function getRandomInt(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	  }
+	  
+	  setInterval(function() {
+		  var element = document.getElementById("box");
+		  //generate random red, green and blue intensity
+		  var r = getRandomInt(0, 255);
+		  var g = getRandomInt(0, 255);
+		  var b = getRandomInt(0, 255);
+		  
+		  document.getElementById("colorvalue").innerHTML = r + " " + g + " " + b;
+	  }, 1500);
+	
+	
+	
+	
 	this.color = RandomColor();
 	
 	//This draws the player to the screen
@@ -22,7 +39,7 @@ function Player()
 		ctx.save();
 			ctx.fillStyle = this.color;
 			ctx.translate(this.x, this.y);
-			ctx.fillRect((-this.width/2), (this.height/2), -this.width, this.height);
+			ctx.fillRect((-this.width/2), (-this.height/2), +this.width, this.height);
 		ctx.restore();
 		
 	}	

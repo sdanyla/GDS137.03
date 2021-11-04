@@ -44,7 +44,8 @@ function animate()
 
     if (player.y > canvas.height + player.height/2)
     {
-        player.vy = -player.height/2
+        player.y = canvas.height - player.height/2
+         player.vy = -player.height/2
     }
 
 	//---------------------------------------------------
