@@ -20,7 +20,7 @@ var player;
 
 function animate()
 {
-	context.clearRect(0,0,canvas.width, canvas.height);	
+	ctx.clearRect(0,0,canvas.width, canvas.height);	
 	player.move();
 	
 	//--------------Loop the Screen----------------------

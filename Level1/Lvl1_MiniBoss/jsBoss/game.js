@@ -37,14 +37,15 @@ function animate()
 		player.vx = -player.vx
 	}
 
-    if (player.y < 10)
+    if (player.y < 30)
     {
         player.vy = -player.vy
     }
 
-    if (player.y > canvas.height + player.height/2)
+    if (player.y > canvas.height - player.height/2)
     {
-        player.vy = -player.height/2
+        player.y = canvas.height - player.height/2
+         player.vy = -player.height/2
     }
 
 	//---------------------------------------------------

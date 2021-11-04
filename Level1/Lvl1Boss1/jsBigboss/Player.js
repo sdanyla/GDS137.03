@@ -14,13 +14,13 @@ function Player()
 	this.vy = 0;
 	
 	//player's color
-	this.color;
+	this.color = RandomColor();
 	
 	//This draws the player to the screen
 	this.draw = function()
 	{
 		ctx.save();
-			ctx.fillStyle = getRandomColor();
+			ctx.fillStyle = this.color;
 			ctx.translate(this.x, this.y);
 			ctx.fillRect((-this.width/2), (this.height/2), -this.width, this.height);
 		ctx.restore();
