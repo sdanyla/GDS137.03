@@ -37,7 +37,7 @@ function animate()
 		player.vx = -player.vx
 	}
 
-    if (player.y < 10)
+    if (player.y < 100)
     {
         player.vy = -player.vy
     }
