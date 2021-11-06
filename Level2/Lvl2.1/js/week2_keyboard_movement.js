@@ -27,7 +27,7 @@ function animate()
 	if(d)
 	{
 		console.log("Moving Right");
-		player.x += 2;
+	player.x += 2;
 	}
 	if(a)
 	{
