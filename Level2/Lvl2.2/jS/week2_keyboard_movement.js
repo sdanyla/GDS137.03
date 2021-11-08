@@ -23,16 +23,16 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
 	
-	//Move the Player up
-	if('w')
+	//Move the Player to the right
+	if(w)
 	{
 		console.log("Moving Up");
-	player.x += 2;
+		player.y += 2;
 	}
-	if('s')
+	if(s)
 	{
 		console.log("Moving Down");
-		player.x += -2;
+		player.y += -2;
 	}
 	
 	//Update the Screen

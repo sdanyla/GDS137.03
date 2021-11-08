@@ -8,7 +8,7 @@ var interval = 1000/60;
 var player;
 
 //This is used to stop the player from moving through obstacles.
-var prevX;
+var prevY
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -16,12 +16,12 @@ var prevX;
 	
 	//Instantiate the Player
 	player = new GameObject();
-	player.x = 150;
+	player.y = 100;
 	
-	lBlock1 = new GameObject(canvas.width - 850, canvas.height/2+75, 20, 200,"#00ff00");
+	lBlock1 = new GameObject(canvas.width - 750, canvas.height/2+75, 100, 100,"#00ff00");
 	lBlock2 = new GameObject(canvas.width - 550, canvas.height/2+75, 100, 100,"#00ff00");
 	rBlock1 = new GameObject((canvas.width-350), canvas.height/2, 100, 100, "orange");
-	rBlock2 = new GameObject((canvas.width-50), canvas.height/2, 12, 100, "blue");
+	rBlock2 = new GameObject((canvas.width-50), canvas.height/2, 100, 100, "blue");
 
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
@@ -33,16 +33,16 @@ function animate()
 	
 	
 	//Move the Player to the right
-	if(d)
-	{
-		//console.log("Moving Down");
-		player.x -= 2;
-	}
-	
-	if(a)
+	if(w)
 	{
 		//console.log("Moving Up");
-		player.x +=5;
+		player.y = -9;
+	}
+	
+	if(s)
+	{
+		//console.log("Moving Down");
+		player.y -= 2;
 	}
 	
 	
@@ -76,12 +76,12 @@ function animate()
 	//Impede movement
 	if(rBlock2.hitTestObject(player))
 	{
-		player.x = prevX;
+		player.y = prevY;
 		console.log("colliding");
 	}
 	else
 	{
-		prevX = player.x;
+		prevY = player.y;
 	}
 	
 	//Update the Screen

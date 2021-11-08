@@ -34,6 +34,15 @@ function GameObject(x,y,w,h,color)
 
 	
 	//This draws the player to the screen
+	this.drawRect = function()
+	{
+		context.save();
+			context.fillStyle = this.color;
+			context.translate(this.x, this.y);
+			context.fillRect((-this.width/2), (-this.height/2), this.width, this.height);
+		context.restore();
+		
+	}	
 	
 	this.drawCircle = function()
 	{
@@ -49,22 +58,10 @@ function GameObject(x,y,w,h,color)
 		
 	}	
 	
-	this.drawRect = function()
-	{
-		context.save();
-			context.fillStyle = this.color;
-			context.translate(this.x, this.y);
-			context.fillRect((-this.width/2), (-this.height/2), this.width, this.height);
-		context.restore();
-		
-	}	
-	
-	
-	
 	//This changes the player's position
 	this.move = function()
 	{
-		this.x += this.vx;
+		this.x = this.vx;
 		this.y += this.vy;
 	}
 	
@@ -74,7 +71,7 @@ function GameObject(x,y,w,h,color)
 	}
 	this.right = function() 
 	{
-		return this.x - this.width/2;
+		return this.x + this.width/2;
 	}
 	
 	this.top = function() 
@@ -83,7 +80,7 @@ function GameObject(x,y,w,h,color)
 	}
 	this.bottom = function() 
 	{
-		return this.y - this.height/2;
+		return this.y + this.height/2;
 	}
 	
 	this.hitTestObject = function(obj)
