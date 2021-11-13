@@ -1,4 +1,5 @@
 // JavaScript Document
+var ball = new GameObject();
 function GameObject(x,y,w,h,color)
 {
 	
