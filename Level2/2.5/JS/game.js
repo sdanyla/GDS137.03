@@ -23,6 +23,7 @@ var prevY
 	ball = new GameObject();
 	ball.y = 380;
 	ball.x = 65;
+	ball.vx = 4;
 
 
 	
@@ -49,30 +50,28 @@ function animate()
 	}
 	
 	//Update the Screen
-	player.drawRect();
-	ball.drawCircle();
 	
 	//move the ball
 	ball.x += ball.vx;
 	
-	//Check Collisions
+	//Check Collision
+
+
+	if (ball.hitTestObject(player))
+	{
+		ball.vx = 4;
+		ball.x = player.x + player.width/2 + ball.width/2
+	}
+
+	if(ball.x > canvas.width - ball.width/2)
+	{
+		ball.vx = -4;
+		ball.x = canvas.width - ball.width/2
+	}
 	
-	if(ball.x > canvas.width)
-	{
-		ball.vx = -ball.x
-	}
-
-	if (ball.x >= player.width)
-	{
-		ball.x += ball.vx
-		
-	}
-
-	if(ball.x)
 	//Update the Screen
 	player.drawRect();
 	ball.drawCircle();
 	
 }
 
-    
