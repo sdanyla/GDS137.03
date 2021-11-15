@@ -7,16 +7,27 @@ var timer;
 var interval = 1000/60;
 var player;
 
+//This is used to stop the player from moving through obstacles.
+var prevY
+
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
 	
 	//Instantiate the Player
 	player = new GameObject();
-
+	player.y = 380;
 	player.x = -35;
+	
+	//Instantiate the ball
+	ball = new GameObject();
+	ball.y = 380;
+	ball.x = 65;
 
-	//Set the Animation Timer
+
+	
+
+	//Set the Animation Timer();
 	timer = setInterval(animate, interval);
 
 function animate()
@@ -39,6 +50,29 @@ function animate()
 	
 	//Update the Screen
 	player.drawRect();
+	ball.drawCircle();
+	
+	//move the ball
+	ball.x += ball.vx;
+	
+	//Check Collisions
+	
+	if(ball.x > canvas.width)
+	{
+		ball.vx = -ball.x
+	}
+
+	if (ball.x >= player.width)
+	{
+		ball.x += ball.vx
+		
+	}
+
+	if(ball.x)
+	//Update the Screen
+	player.drawRect();
+	ball.drawCircle();
+	
 }
 
-//keep the
+    

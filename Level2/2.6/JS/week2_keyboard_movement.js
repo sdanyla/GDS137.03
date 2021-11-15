@@ -3,11 +3,6 @@
 var canvas;
 var context;
 var timer;
-var radius = 5;
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-
-
 //1000 ms or 1 second / FPS
 var interval = 1000/60;
 var player;
@@ -17,22 +12,34 @@ var player;
 	context = canvas.getContext("2d");	
 	
 	//Instantiate the Player
-	player = new Player();
-	ctx.beginPath();
-	ctx.arc(100, 75, 50, 0, 2, radius* Math.PI);
-	ctx.stroke();
+	player = new GameObject();
+
+	player.x = -35;
 
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
 
-	function animate()
+function animate()
 {
 	//Erase the Screen
-	context.clearRect(0,0,-canvas.width, canvas.height);	
+	context.clearRect(0,0,canvas.width, canvas.height);	
 	
-	//Move the Player
-	player.x += 2;
+	
+	//Move the Player to the right
+	if(s)
+	{
+		console.log("Moving Up");
+		player.y += 2;
+	}
+	if(w)
+	{
+		console.log("Moving Down");
+		player.y += -2;
+	}
 	
 	//Update the Screen
-	player.draw();
+	player.drawRect();
+	
 }
+
+//keep the
