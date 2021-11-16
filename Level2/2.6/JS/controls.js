@@ -4,14 +4,13 @@ var w = true;
 
 
 //Add Event Listeners
-document.addEventListener("keydown", press);
 document.addEventListener("keyup", release);
-
+document.addEventListener("keydown", press);
 //Event Functions
 function press(e)
 {
 	//---This logs key codes into the browser's console.
-	//console.log("Pressed" + e.keyCode);
+	console.log("Pressed" + e.keyCode);
 	
 	if(e.keyCode == 83)
 	{
@@ -35,7 +34,7 @@ function press(e)
 function release(e)
 {
 	//---This logs key codes into the browser's console.
-	//console.log("Released" + e.keyCode);
+	console.log("Released" + e.keyCode);
 	
 	if(e.keyCode == 83)
 	{
