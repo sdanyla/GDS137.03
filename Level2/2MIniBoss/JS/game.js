@@ -94,3 +94,7 @@ var prevY
 		{
 		ball.vy = -ball.vy
 		}
+	//Update the Screen
+		player.drawRect();
+		ball.drawCircle();	
+	}
