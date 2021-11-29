@@ -1,9 +1,6 @@
 //Define Booleans for each key
-
-var w = true;
 var s = true;
-
-
+var w = true;
 
 
 //Add Event Listeners
@@ -17,19 +14,11 @@ function press(e)
 	
 	if(e.keyCode == 83)
 	{
-
-		w = true;
-	}
-	if(e.keyCode == 87)
-	{
-		s = true;
-
 		s = true;
 	}
 	if(e.keyCode == 87)
 	{
 		w = true;
-
 	}
 	if(e.keycode == 65)
 	{
@@ -49,10 +38,6 @@ function release(e)
 	
 	if(e.keyCode == 83)
 	{
-		w = false;
-	}
-	if(e.keyCode == 87)
-	{
 		s = false;
 	}
 	if(e.keyCode == 87)
@@ -68,4 +53,5 @@ function release(e)
 		d = false;
 	}
 }
+
 

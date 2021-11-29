@@ -100,3 +100,5 @@ var prevY
 		player.drawRect();
 		ball.drawCircle();	
 	}
+
+
