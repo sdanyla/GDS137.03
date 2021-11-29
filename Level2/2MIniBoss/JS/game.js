@@ -19,7 +19,7 @@ var prevY
 	player = new GameObject();
 	player.y = 380;
 	player.x = 25;
-	player.vy = 5;
+	player.vy = 15;
 	player.height = 102;
 	player.width = 17;
 	
@@ -30,8 +30,8 @@ var prevY
 	ball.x = canvas.width/2;
 	ball.vx = -4;
 	ball.vy = 0;
-	ball.height = 20;
-	ball.width = 20;
+	ball.height = 22;
+	ball.width = 22;
 
 
 	
@@ -39,55 +39,58 @@ var prevY
 	//Set the Animation Timer();
 	timer = setInterval(animate, interval);
 
-function animate()
-{
-	//Erase the Screen
-	context.clearRect(0,0,canvas.width, canvas.height);	
-	
-	
-	//Move the Player to the right
-	if(s)
+	function animate()
 	{
-		console.log("Moving Up");
-		player.y += 2;
-	}
-	if(w)
-	{
-		console.log("Moving Down");
-		player.y += -2;
-	}
+		//Erase the Screen
+		context.clearRect(0,0,canvas.width, canvas.height);	
 	
-	//Update the Screen
 	
-	//move the ball
-	ball.x += ball.vx;
-	ball.   y += ball.vy;
-	
-	//Check Collision
-
-
-	if (ball.hitTestObject(player))
-	{
-		ball.vx = 4;
-		ball.x = player.x + player.width/2 + ball.width/2
-
-		if (ball.y < player.y)
-		{
-			ball.vy =-5;
-
+		//Move the Player Up and Down
+		if(w)
+			{
+			console.log("Moving Up");
+			player.y += 2;
 		}
-	}
-
-	if(ball.x > canvas.width - ball.width/2)
-	{
-		ball.vx = -4;
-		ball.x = canvas.width - ball.width/2
-	}
-
+			if(s)
+		{
+			console.log("Moving Down");
+			player.y += -2;
+		}
 	
-
-	//Update the Screen
-	player.drawRect();
-	ball.drawCircle();
+		//Update the Screen
 	
-}
+		//move the ball
+		ball.x += ball.vx;
+		ball.y += ball.vy;
+	
+		//Check Collision
+		if (ball.hitTestObject(player))
+		{
+			ball.vx =+4;
+			ball.vy =+2;
+			ball.x = player.x + player.width/2 + ball.width/2
+			ball.y = player.y - player.height/2 - ball.height/2
+
+			if (ball.y < player.y/6)
+			{
+				ball.vy =-5;
+				ball.vx =3;
+			}
+	
+		}	
+
+		if(ball.x > canvas.width - ball.width/2)
+		{
+			ball.vx = -4;
+			ball.x = canvas.width - ball.width/2
+		}
+
+		if (ball.y > canvas.height + ball.height/2)
+    	{
+        	ball.y = canvas.height - ball.height/2
+        	ball.vy = -ball.height/2
+    	}
+		if (ball.y < 40)
+		{
+		ball.vy = -ball.vy
+		}
