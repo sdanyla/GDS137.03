@@ -3,11 +3,16 @@ var a = false;
 var d = false;
 var w = true;
 var s = true;
+var o = true;
+var l = true;
+var j = false;
+var k = false;
 
 //Add Event Listeners
-document.addEventListener("keydown", press);
-document.addEventListener("keyup", release);
-
+document.addEventListener("keyup", press);
+document.addEventListener("keydown", release);
+document.addEventListener("keyup", press);
+document.addEventListener("keydown", release);
 //Event Functions
 function press(e)
 {
@@ -38,8 +43,14 @@ function press(e)
 	{
 		l = true;
 	}
-
-
+	if(e.keyCode == 74)
+	{
+		 j= true;
+	}
+	if(e.keyCode == 75)
+	{
+		 k= true;
+	}
 
 
 }
@@ -66,7 +77,6 @@ function release(e)
 	{
 		s = false;
 	}
-
 	if(e.keyCode == 79)
 	{
 		o = false;
@@ -75,8 +85,12 @@ function release(e)
 	{
 		l = false;
 	}
-
-
-
-
+	if(e.keyCode == 74)
+	{
+		 j= false;
+	}
+	if(e.keyCode == 75)
+	{
+		k = false;
+	}
 }
