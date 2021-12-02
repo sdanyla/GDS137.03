@@ -8,13 +8,29 @@ var player;
 var player2;
 var ball;
 
+//Instantiate the Player
+player = new GameObject();
+player.y = 380;
+player.x = 25;
+player.vy = 15;
+player.height = 102;
+player.width = 17;
+
+
+//Instantiate the ball
+ball = new GameObject();
+ball.y = 380;
+ball.x = canvas.width/2;
+ball.vx = -4;
+ball.vy = 0;
+ball.height = 22;
+ball.width = 22;
+
 //---------------Set Friction and Gravity-----------------
 var frictionX = .85;	
 var frictionY = .97;
 var gravity = 1;
 //--------------------------------------------------------
-
-
 
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
@@ -24,11 +40,14 @@ var gravity = 1;
 
 	player2 = new GameObject();
 	player2.force = 2;
+
+	ball = new GameObject();
+
 	
 	timer = setInterval(animate, interval);
 
 
-function animate();
+function animate()
 {
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
@@ -41,7 +60,7 @@ function animate();
 	
 	player.drawRect();
 	player2.drawRect();
-	ball.drawCircle();ssss
+	ball.drawCircle();
 
 
 }
@@ -53,7 +72,7 @@ ONLY CALL ONE OF THESE FUNCTIONS AT A TIME!!!!!!!!*/
 
 
 
-function showAcceleration();
+function showAcceleration()
 {
 	//--------------Use Velocity and Acceleration to move around----------------------
 	if(d)
@@ -81,7 +100,7 @@ function showAcceleration();
 
 }
 
-function showFriction();
+function showFriction()
 {
 	if(d)
 	{	
@@ -106,7 +125,7 @@ function showFriction();
 	player.x += player.vx;
 }
 
-function showGravity();
+function showGravity()
 {
 	
 	if(d)
@@ -155,6 +174,22 @@ function showPixelLock()
 		player.vy += player.ay * player.force;
 	}
 	
+	if(k)
+	{	
+		player2.vx += player2.ax * playe2r.force;
+	}
+	if(j)
+	{
+		player2.vx += player2.ax * -player2.force;
+	}
+	if(o)
+	{	
+		player2.vy += player2.ay * -player2.force;
+	}
+	if(l)
+	{
+		player2.vy += player2.ay * player2.force;
+	}
 
 	player.vx *= frictionX;	
 	player.vy *= frictionY;
@@ -197,14 +232,12 @@ function showBounce()
 	//--------------------Check Collision------------------------------------------------------
 	if(player.y > canvas.height - player.height/2)
 	{
-		
 		//--------Bounce the Ball---------------------------------------------------------------
-		player.y = canvas.height - player.height/2;
+		ball.y = canvas.height -ball.height/2;
 		//the decimal is how bouncy you want the object to be
 		//It should be a number between 0 and 2;
 		player.vy = -player.vy * .99;
 	}
-	
 	//-----------------------------------------------------------------------------------------
 }
 

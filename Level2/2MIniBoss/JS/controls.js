@@ -17,19 +17,11 @@ function press(e)
 	
 	if(e.keyCode == 83)
 	{
-
 		w = true;
 	}
 	if(e.keyCode == 87)
 	{
 		s = true;
-
-		s = true;
-	}
-	if(e.keyCode == 87)
-	{
-		w = true;
-
 	}
 	if(e.keycode == 65)
 	{
@@ -54,10 +46,6 @@ function release(e)
 	if(e.keyCode == 87)
 	{
 		s = false;
-	}
-	if(e.keyCode == 87)
-	{
-		w = false;
 	}
 	if(e.keycode == 65)
 	{
